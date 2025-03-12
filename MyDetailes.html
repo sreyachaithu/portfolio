@@ -1,0 +1,251 @@
+<html>
+   <head>
+       <title>MY BIO</title>
+       <style>
+        table {
+            background-color:aqua;
+            border: brown;
+            font-size:30px;
+         
+             width:70%;
+            
+        }
+        .txt
+        {
+            background-color:aquamarine;
+            border: 1px solid green;
+            outline-style: solid;
+            outline-color:;
+            outline-width: thin;
+            font-size: 20px;
+            border-radius: 0px;
+       }
+       .mybutton
+        {
+            background-color:lightgrey;
+            border: 1px solid green;
+            outline-style: solid;
+            outline-color:black;
+            outline-width: thin;
+            font-size: 20px;
+            border-radius: 6px;
+       }
+        
+        
+        body {
+            background-color:lightyellow;
+        }
+        .img1
+        {
+  
+            border-radius: 1px;
+       }
+       .frm
+       {
+            border:2px solid black ;
+        }
+            
+        </style>
+        <script>
+        
+        function f1()
+        {
+              var p1=document.form1.pwd.value;
+              var p2=document.form1.cpwd.value;
+              if(p1!=p2)
+              {
+                   alert("password and confirm password should be same");
+                }
+                else if(p1.length<8)
+                {
+                      alert("password should contain atleast 8 characters");
+                }
+               /* else
+                {
+                   document.form1.submit();
+                }*/
+         }
+         
+         
+         
+       function f2()
+       {
+                 var y = document.getElementById("pwd");
+            if(y.type=="password")
+            y.type="text";
+            else
+            y.type="password";
+       }
+       
+       
+  function f3()
+   {
+          document.form1.myname.value=document.form1.myname.value.toUpperCase();
+          var s=document.form1.myname.value;
+                       var flag=0;
+          for(var i=0;i<s.length;i++)
+          {
+              var n=s.charCodeAt(i);
+                 if(n<65||n>91)
+                 {
+                      flag=1;
+                  }
+            }
+                  if(flag==1)
+                  
+                     alert("name should not contain any special characters");
+     }
+       
+       function f4()
+       {
+           var exp=/^[a-zA-Z0-9.!#$%&'*+/=?^_{|}~`-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+           var m=document.form1.mymail.value;
+           if(!(m.match(exp)))
+           {
+               alert("invalid email");
+           }
+       }
+       
+       function num()
+       {
+          var nb=/^[0-9]/;
+          var mb=document.form1.mynum.value;
+          if(!(mb.match(nb))||mb.length!=10)
+          {
+              alert("enter valid number");
+           }
+      }
+       function add()
+       {
+         if(document.form1.chkadd.checked)
+          {
+            document.form1.padd.value=document.form1.tadd.value;
+          }
+          else
+             {
+             document.form1.padd.value="";
+             }       
+      }
+          
+       
+      
+        
+        </script>
+        </head>
+        <body>
+        <form name="form1" id="form1" action="takeDetails.jsp" method="post" class="frm">
+                <table align=center border=0>
+                <tr><th align=center colspan=3 style='font-size:39px'><b><u>MYDETAILS</u></b></th></tr>
+                <tr>
+                        <td>UserName:</td>
+                        <td><input type="text" required class="txt" name="myname" id="myname" placeholder="enter your name" onChange="f3()"></td>
+                        <td rowspan=2><img src="/home/rgukt-basar/HTML/pics (copy)/IMG20240324161643.jpg" width=130 height=120 border=2px class="img1" ><br>
+                        </td>       
+              </tr><br><br><br>
+             <tr>
+                  <td>Password</td>
+                  <td><input type="password" required class="txt" name="pwd" id="pwd" placeholder="enter password" >
+                  <input type="button" class="mybutton" value="Show-Password" onClick="f2()">
+                  </td>
+             <tr>
+                  <td>Confirm-Password</td>
+                  <td><input type="password" required class="txt" name="cpwd" id="cpwd" placeholder="Re enter password" onChange="f1()">
+                  </td>
+            </tr>
+            <tr>
+                    <td>Gender</td>
+                    <td>Male<input type="radio" class="" name="mygen" id="mygen" >&nbsp;&nbsp;&nbsp;Female<input type="radio" name="mygen" id="mygen">
+                    </td>
+            </tr>
+            <tr>
+                  <td>Date Of Birth</td>
+                  <td><input type="date" class="txt" name="mydate" id="mydate">
+                  </td>
+          </tr>
+          
+          <tr>
+                 <td>Languages known</td>
+                 <td>Telugu<input type="checkbox" class="mybutton" name="lang" id="lang">English<input type="checkbox" class="mybutton" name="lang" id="lang">Hindi<input type="checkbox" class="mybutton" name="lang" id="lang">
+              </td>
+         </tr>
+       <tr>
+             <td>Email</td>
+             <td><input type="email" required class="txt" name="mymail" id="mymail" placeholder="enter your mail id" onChange="f4()">
+             </td>
+       </tr>
+       <tr>
+            <td>Favourite Color</td>
+            <td><input type="color" required  class="txt" name="myclr" id="myclr">
+           </td>
+      </tr>
+            
+          <tr>
+                  <td>Branch</td>
+                  <td>
+                  <select name="mybranch" required class="mybutton"><option>CSE</option><option>ECE</option><option>EEE</option><option>CIVIL</option><option>MECH</option><option>CHEM</option><option>MME</option>
+                  </td>
+            </tr>
+            
+              
+          <tr>
+                 <td>Subjects</td>
+                 <td>C<input type="checkbox" class="mybutton" name="lang" id="lang">JAVA<input type="checkbox" class="mybutton" name="lang" id="lang">WT<input type="checkbox" class="mybutton" name="lang" id="lang">
+              </td>
+         </tr>
+            
+          <tr>
+            <td>Performance</td>
+            <td><input type="range" required name="pr" id="pr">
+            </td>
+           </tr>
+         <tr>
+               <td>Mobile Number</td>
+               <td><input type="tel" required class="txt" name="mynum" id="mynum" placeholder="Enter your mobile number" onChange="num()">
+               </td>
+         </tr>
+         <tr>
+                <td>Temporary Address</td>
+                <td><textarea class="txt" required name="tadd" id="tadd" placeholder="Enter current Address" rows=3 cols=40></textarea>
+                </td>
+         </tr>
+         <tr>
+               <td colspan=3 align=center>
+                      Temporary and Permanent address are same<input type="checkbox" required class="mybutton" name="chkadd" id="chkadd" onClick="add()">
+               </td>
+        </tr>
+        <tr>
+              <td>Permanent Address</td>
+              <td><textarea class="txt" required name="padd" id="padd" placeholder="Enter your permanent Address" rows=3 cols=40></textarea>
+              </td>
+           </tr>
+           
+           <tr>
+                  <td>Skills</td>
+                  <td>
+                       <select id="menu" required class="mybutton"name="menu" onChange="">
+                      <option>Singing</option>
+                     <option>Dancing</option>
+                    <option>Painting</option>
+	    <option>Marshal Arts</option>
+	     <option>Others</option>
+	 </td>
+         </tr>
+         
+         <tr>
+         <td colspan=3 align=center>
+         <input type="button"  class="mybutton"value="print" onClick="window.print()">
+            <input type="submit" class="mybutton"value="submit" >
+               <input type="button" class="mybutton"value="Close" onClick="window.close()">
+            <input type="reset" class="mybutton" value="reset" onclick="null">
+             </td>
+      </tr>         
+      
+            
+            
+              </form>  
+                </table>
+             </body>
+        </html>
+             
+                
+               
